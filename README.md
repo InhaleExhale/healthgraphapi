@@ -1,19 +1,13 @@
 StravaApi
 =============
 
-Simple PHP class to interact with Strava's V3 API.
+Simple PHP class to interact with Runkeeper's HealthGraph API. Forked from 
+[Iamstuartwilson/strava](https://github.com/iamstuartwilson/strava).
 
 [![Build Status](https://travis-ci.org/iamstuartwilson/strava.svg)](https://travis-ci.org/iamstuartwilson/strava)
 ![Minimum PHP Version](http://img.shields.io/badge/php->=5.5-8892BF.svg?style=flat)
-![Packagist](https://img.shields.io/packagist/v/iamstuartwilson/strava.svg)
-![Packagist Downloads](https://img.shields.io/packagist/dt/iamstuartwilson/strava.svg)
 
-VERSION BUMP
--------
 
-Latest version **1.3.0**
-
-- Adds possibility to use absolute URL for an endpoint to work with [new webhook functionality](http://strava.github.io/api/partner/v3/events/)
 
 Overview
 ------------
@@ -35,7 +29,7 @@ $ composer require iamstuartwilson/strava
 
 **Or**
 
-Add `iamstuartwilson/strava` to your `composer.json`:
+Add `InhaleExhale/runkeeper-php` to your `composer.json`:
 
 ``` json
 {
@@ -47,7 +41,7 @@ Add `iamstuartwilson/strava` to your `composer.json`:
 
 ### Manually
 
-Copy `StravaApi.php` to your project and *require* it in your application as described in the next section.
+Copy `HealthGraphApi.php` to your project and *require* it in your application as described in the next section.
 
 Getting Started
 ------------
@@ -55,9 +49,9 @@ Getting Started
 Include the class and instantiate with your **client_id** and **client_secret** from your [registered app](http://www.strava.com/developers):
 
 ``` php
-require_once 'StravaApi.php';
+require_once 'HealthGraphApi.php';
 
-$api = new Iamstuartwilson\StravaApi(
+$api = new InhaleExhale\HealthGraphApi(
     $clientId,
     $clientSecret
 );

@@ -1,6 +1,6 @@
 <phpunit bootstrap="vendor/autoload.php">
     <testsuites>
-        <testsuite name="strava-api">
+        <testsuite name="runkeeper-api">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
