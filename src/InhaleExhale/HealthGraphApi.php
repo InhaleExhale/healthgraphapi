@@ -1,6 +1,6 @@
 <?php
 
-    namespace Iamstuartwilson;
+    namespace InhaleExhale;
 
     /**
      * Simple PHP Library for the Strava v3 API
@@ -10,9 +10,9 @@
      * @link https://github.com/iamstuartwilson/strava
      */
 
-    class StravaApi
+    class HealthGraphApi
     {
-        const BASE_URL = 'https://www.strava.com/';
+        const BASE_URL = 'https://runkeeper.com/';
 
         public $lastRequest;
         public $lastRequestData;
@@ -39,6 +39,7 @@
         protected $authUrl;
         protected $clientId;
         protected $clientSecret;
+        protected $lastRedirectUrl;
 
         private $accessToken;
 
@@ -52,8 +53,8 @@
         {
             $this->clientId     = $clientId;
             $this->clientSecret = $clientSecret;
-            $this->apiUrl       = self::BASE_URL . 'api/v3/';
-            $this->authUrl      = self::BASE_URL . 'oauth/';
+            $this->apiUrl       = self::BASE_URL . 'apps/';
+            $this->authUrl      = self::BASE_URL . 'apps/';
         }
 
         /**
@@ -167,12 +168,13 @@
          * @param string $scope
          * @param string $state
          *
-         * @link http://strava.github.io/api/v3/oauth/#get-authorize
          *
          * @return string
          */
         public function authenticationUrl($redirect, $approvalPrompt = 'auto', $scope = null, $state = null)
         {
+            $this->lastRedirectUrl = $redirect;
+
             $parameters = array(
                 'client_id'       => $this->clientId,
                 'redirect_uri'    => $redirect,
@@ -196,28 +198,27 @@
          *
          * @param string $code
          *
-         * @link http://strava.github.io/api/v3/oauth/#post-token
-         *
          * @return string
          */
         public function tokenExchange($code)
         {
             $parameters = array(
+                'grant_type'    => 'authorization_code',
                 'client_id'     => $this->clientId,
                 'client_secret' => $this->clientSecret,
                 'code'          => $code,
+                'redirect_url'  => $this->lastRedirectUrl
             );
 
-            return $this->request(
+            var_dump($token = $this->request(
                 $this->authUrl . 'token',
                 $parameters
-            );
+            ));
+            return $token;
         }
 
         /**
          * Deauthorises application
-         *
-         * @link http://strava.github.io/api/v3/oauth/#deauthorize
          *
          * @return string
          */
@@ -247,7 +248,6 @@
          * @param string $request
          * @param array  $parameters
          *
-         * @example http://strava.github.io/api/v3/athlete/#koms
          *
          * @return string
          */
@@ -265,7 +265,6 @@
          * @param string $request
          * @param array  $parameters
          *
-         * @example http://strava.github.io/api/v3/athlete/#update
          *
          * @return string
          */
@@ -284,7 +283,6 @@
          * @param string $request
          * @param array  $parameters
          *
-         * @example http://strava.github.io/api/v3/activities/#create
          *
          * @return string
          */
@@ -302,7 +300,6 @@
          * @param string $request
          * @param array  $parameters
          *
-         * @example http://strava.github.io/api/v3/activities/#delete
          *
          * @return string
          */

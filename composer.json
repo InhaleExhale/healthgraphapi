@@ -1,11 +1,11 @@
 {
-    "name": "iamstuartwilson/strava",
-    "description": "PHP implementation of the Strava V3 API",
+    "name": "InhaleExhale/runkeeper-php",
+    "description": "PHP implementation of the HealthGraph API",
     "license": "MIT",
     "authors": [
         {
-            "name": "Stuart Wilson",
-            "email": "bonjour@iamstuartwilson.com"
+            "name": "Ian Hales",
+            "email": "contact@ian-hales.com"
         }
     ],
     "minimum-stability": "dev",
