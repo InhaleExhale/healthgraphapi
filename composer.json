@@ -1,6 +1,6 @@
 {
     "name": "inhaleexhale/healthgraphapi",
-    "description": "PHP implementation of the HealthGraph API",
+    "description": "PHP implementation of the HealthGraph API based on the StravaAPI repo from iamstuartwilson",
     "license": "MIT",
     "authors": [
         {
