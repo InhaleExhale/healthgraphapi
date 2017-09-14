@@ -3,11 +3,11 @@
     namespace InhaleExhale;
 
     /**
-     * Simple PHP Library for the Strava v3 API
+     * Simple PHP Library for the RunKeeper Healthgraph
      *
-     * @author Stuart Wilson <bonjour@iamstuartwilson.com>
+     * @author Ian Hales <stuff@ian-hales.com<
      *
-     * @link https://github.com/iamstuartwilson/strava
+     * @link https://github.com/inhaleexhale/healthgraphapi
      */
 
     class HealthGraphApi
